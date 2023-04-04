@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edfirmin <edfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 18:01:34 by edfirmin          #+#    #+#             */
-/*   Updated: 2023/04/04 11:45:52 by edfirmin         ###   ########.fr       */
+/*   Created: 2023/04/04 14:46:37 by edfirmin          #+#    #+#             */
+/*   Updated: 2023/04/04 15:41:00 by edfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strtrim(char const *s1, char set)
 {
-	size_t	i;
-	size_t	j;
 	char	*str;
+	int		i;
+	int		j;
 
-	if (!s || start == 4294967295 || ft_strlen(s) < (size_t)start)
-	{
-		str = malloc(1 * sizeof(char));
-		str[0] = '\0';
-		return (str);
-	}
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
-	str = malloc((len + 1) * sizeof(*s));
-	if (!str)
-		return (0);
-	i = -1;
+	i = 0;
 	j = 0;
-	while (s[++i])
-	{
-		if (i >= start && j < len)
-			str[j++] = s[i];
-	}
-	str[j] = '\0';
+	str = (char *)s1;
+	while (str[i])
+		j++;
+	//if (str[i] == set)
+	//	str = &str[i];
+	if (str[--j] == set)
+		str[j] = 0;
 	return (str);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%s\n", ft_strtrim("jdrfgfefj", 'j'));
 }
