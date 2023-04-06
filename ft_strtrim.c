@@ -6,33 +6,43 @@
 /*   By: edfirmin <edfirmin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:46:37 by edfirmin          #+#    #+#             */
-/*   Updated: 2023/04/04 15:41:00 by edfirmin         ###   ########.fr       */
+/*   Updated: 2023/04/06 09:07:21 by edfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char set)
+static char	*memerro(char *str)
 {
-	char	*str;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	str = (char *)s1;
-	while (str[i])
-		j++;
-	//if (str[i] == set)
-	//	str = &str[i];
-	if (str[--j] == set)
-		str[j] = 0;
+	str = malloc(1 * sizeof(char));
+	str[0] = '\0';
 	return (str);
 }
 
-#include <stdio.h>
-
-int	main(void)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	printf("%s\n", ft_strtrim("jdrfgfefj", 'j'));
+	size_t		early;
+	size_t		end;
+	char		*dupli;
+
+	early = 0;
+	dupli = 0;
+	if (s1 == set || (!*s1 && set))
+		return (memerro(dupli));
+	if (s1 != 0 && set != 0)
+	{
+		end = ft_strlen((char *) s1);
+		while (s1[early] && ft_strchr(set, s1[early]))
+			early++;
+		while (s1[end - 1] && ft_strchr(set, s1[end - 1]))
+			end--;
+		if (early >= end)
+			return (ft_strdup(""));
+		dupli = malloc(sizeof (char) * (end - early + 1));
+		if (!dupli)
+			return (0);
+		if (dupli)
+			ft_strlcpy(dupli, &s1[early], end - early + 1);
+	}
+	return (dupli);
 }
