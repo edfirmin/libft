@@ -6,7 +6,7 @@
 #    By: edfirmin <edfirmin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 11:52:12 by edfirmin          #+#    #+#              #
-#    Updated: 2023/04/07 12:00:42 by edfirmin         ###   ########.fr        #
+#    Updated: 2023/04/07 15:06:46 by edfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ ft_memchr.c ft_memcmp.c ft_strncmp.c ft_strnstr.c ft_calloc.c ft_memmove.c \
 ft_strjoin.c ft_substr.c ft_itoa.c ft_strtrim.c ft_split.c ft_strmapi.c \
 ft_striteri.c
 
-BONUS = ft_lstnew.c
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c
 
 FLG = -Wall -Werror -Wextra
 
