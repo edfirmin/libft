@@ -6,7 +6,7 @@
 #    By: edfirmin <edfirmin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 11:52:12 by edfirmin          #+#    #+#              #
-#    Updated: 2023/04/08 12:50:21 by edfirmin         ###   ########.fr        #
+#    Updated: 2023/04/08 14:16:32 by edfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ bonus : $(OBJ_BONUS) $(OBJ)
 
 clean :
 	rm -f $(OBJ)
+	rm -f $(OBJ_BONUS)
 
 fclean : clean
 	rm -f $(NAME)
